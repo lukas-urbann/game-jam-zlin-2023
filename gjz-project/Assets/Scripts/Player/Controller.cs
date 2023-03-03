@@ -1,22 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Vector3 = System.Numerics.Vector3;
 
 namespace Player
 {
+    /// <summary>
+    /// PlayerType se uvádí při interakcích, aby šlo odhadnout který hráč může s interakcí pracovat.
+    /// </summary>
+    public enum PlayerType
+    {
+        Player1,
+        Player2
+    }
+
+    /// <summary>
+    /// Hlavní hráčův skript, který kontroluje obě hráčova těla.
+    /// </summary>
     public class Controller : MonoBehaviour
     {
+        #region Attributy
+
         public static Controller Instance;
         
         [Header("PlayerPrefabs")]
         [SerializeField] private Body selectedPlayer;
-        [SerializeField] private Body player1, player2;
-        [SerializeField] private GameObject cameraLookPoint;
+        public Body player1, player2;
 
-        public UnityEngine.Camera cam;
-
+        #endregion
+        
+        //Singleton
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -29,36 +39,31 @@ namespace Player
             }
         }
 
+        /// <summary>
+        /// Vrací skript 'Body' vybraného hráče.
+        /// </summary>
+        /// <returns>Vybraný hráč (Body.cs)</returns>
         public Body GetSelectedPlayer()
         {
             return selectedPlayer;
         }
 
-        private void CalculateInterpolatedLocation()
-        {
-            cam.transform.LookAt(cameraLookPoint.transform);
-        }
-
         private void Update()
         {
-            CalculateInterpolatedLocation();
-            
+            //Vymění zvolené tělo hráče
             if (Input.GetKeyDown(KeyCode.O))
-            {
                 SwitchBodies();
-            }
         }
 
+        /// <summary>
+        /// Vymění těla hráči
+        /// </summary>
         public void SwitchBodies()
         {
-            selectedPlayer.canMove = false;
-            
-            if (selectedPlayer == player1)
-                selectedPlayer = player2;
-            else
-                selectedPlayer = player1;
+            player1.SetCanMove(!player1.GetCanMove());
+            player2.SetCanMove(!player2.GetCanMove());
 
-            selectedPlayer.canMove = true;
+            selectedPlayer = selectedPlayer == player1 ? player2 : player1; //Muj mozek objevil nove univerzum
         }
     }
 }

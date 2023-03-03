@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 338012676}
   - component: {fileID: 338012675}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Tohle nasleduje kamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +465,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338012673}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -541,7 +541,6 @@ MonoBehaviour:
   player1: {fileID: 1546536259}
   player2: {fileID: 1332966509}
   cameraLookPoint: {fileID: 1941634994}
-  cam: {fileID: 1764728335}
 --- !u!4 &445365934
 Transform:
   m_ObjectHideFlags: 0
@@ -571,6 +570,7 @@ GameObject:
   - component: {fileID: 485192001}
   - component: {fileID: 485192000}
   - component: {fileID: 485191999}
+  - component: {fileID: 485192003}
   m_Layer: 0
   m_Name: lever
   m_TagString: Untagged
@@ -656,6 +656,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485192003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485191998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ada4768dd227b242b5562e977c6f531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 0
+  reachDistance: 0
 --- !u!1 &982476962
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +683,7 @@ GameObject:
   - component: {fileID: 982476965}
   - component: {fileID: 982476967}
   m_Layer: 0
-  m_Name: kostkus
+  m_Name: Tohle je mezi hraci
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +711,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982476962}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -752,11 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b117a16bce17059438834c63308332c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1546536254}
-  player2: {fileID: 1332966507}
-  pl1: {x: 0, y: 0, z: 0}
-  pl2: {x: 0, y: 0, z: 0}
-  pl3: {x: 0, y: 0, z: 0}
 --- !u!1 &1332966507
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,12 +816,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8716c6c4d0bdb024d98f91b99ef3679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerType: 0
   canMove: 0
-  speed: 5
-  spdZ: 5
-  jumpSpeed: 10
-  gravity: 9.87
   canTeleport: 1
+  speed: 5
+  jumpSpeed: 10
 --- !u!23 &1332966510
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -975,12 +983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8716c6c4d0bdb024d98f91b99ef3679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerType: 0
   canMove: 1
-  speed: 5
-  spdZ: 5
-  jumpSpeed: 10
-  gravity: 9.87
   canTeleport: 1
+  speed: 5
+  jumpSpeed: 10
 --- !u!143 &1546536261
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1094,6 +1101,7 @@ GameObject:
   - component: {fileID: 1764728335}
   - component: {fileID: 1764728334}
   - component: {fileID: 1764728337}
+  - component: {fileID: 1764728338}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1180,6 +1188,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 338012674}
+--- !u!114 &1764728338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764728333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084f9e3e903073d4f9f477cbe50c1f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1941634998}
 --- !u!1 &1810136857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,7 +1390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871259580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.32, y: 0.16, z: -6.55}
+  m_LocalPosition: {x: 5.32, y: 1.87, z: -6.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1402,7 +1423,7 @@ GameObject:
   - component: {fileID: 1941634996}
   - component: {fileID: 1941634995}
   m_Layer: 0
-  m_Name: kostkus (1)
+  m_Name: Na tohle se diva kamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1427,7 +1448,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941634994}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

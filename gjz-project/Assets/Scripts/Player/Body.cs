@@ -1,25 +1,34 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Portal;
 using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Hlavní třída ovládající jednotlivé těla hráče.
+    /// </summary>
     [RequireComponent(typeof(CharacterController))]
     public class Body : MonoBehaviour
     {
+        #region Attributy
+
         private CharacterController characterController;
-        public bool canMove = false;
         
+        //Označuje hráče
+        public PlayerType PlayerType;
+        
+        //Booly
+        [SerializeField] private bool canMove = false;
+        [SerializeField] private bool canTeleport = true;
+
+        //Proměnné editovatelné
         [SerializeField] private float speed = 5;
-        [SerializeField] private float spdZ = 5;
         [SerializeField] private float jumpSpeed = 6;
-        [SerializeField] private float gravity = 9.87f;
-        public bool canTeleport = true;
 
-        Vector3 moveDirection = Vector3.zero;
-
+        //Proměnné private
+        private Vector3 moveDirection = Vector3.zero;
+        private float gravity = 9.87f;
+        
+        #endregion
+        
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
@@ -27,65 +36,81 @@ namespace Player
 
         private void Update()
         {
+            //Checkuje pohyb
             if (!canMove)
                 return;
             
-            Vector3 forward = transform.TransformDirection(Vector3.forward);
-            Vector3 right = transform.TransformDirection(Vector3.right);
-            float movementDirectionY = moveDirection.y;
+            MoveInput();
+            JumpInput();
+            Gravity();
+            
+            characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
+        }
 
-            float spdx = speed * Input.GetAxis("Vertical");
-            float spdy = spdZ * Input.GetAxis("Horizontal");
+        public void SetCanMove(bool val)
+        {
+            canMove = val;
+        }
+        
+        public bool GetCanMove()
+        {
+            return canMove;
+        }
+
+        /// <summary>
+        /// Dovoluje se hráči hýbat.
+        /// </summary>
+        private void MoveInput()
+        {
+            Vector3 playerForward = transform.TransformDirection(Vector3.forward);
+            Vector3 playerRight = transform.TransformDirection(Vector3.right);
             
-            moveDirection = (forward * spdx) + (right * spdy);
+            float bodySpeedX = speed * Input.GetAxis("Vertical");
+            float bodySpeedY = speed * Input.GetAxis("Horizontal");
             
+            moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
+        }
+
+        /// <summary>
+        /// Dovoluje hráči skákat.
+        /// </summary>
+        private void JumpInput()
+        {
+            //TODO: NĚkde tu je rozbity skok a gravitace
+            float moveDirectionYTemp = moveDirection.y;
             
             if (Input.GetButton("Jump") && characterController.isGrounded)
-            {
                 moveDirection.y = jumpSpeed;
-            }
             else
-            {
-                moveDirection.y = movementDirectionY;
-            }
-            
+                moveDirection.y = moveDirectionYTemp;
+        }
+
+        /// <summary>
+        /// Působení gravitace.
+        /// </summary>
+        private void Gravity()
+        {
             if (!characterController.isGrounded)
             {
                 moveDirection.y -= gravity * Time.deltaTime;
             }
-            
-            characterController.Move(moveDirection * Time.deltaTime);
-        }
-
-        private void CheckGravity()
-        {
-            
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Portal"))
             {
-                canTeleport = false;
-
-                characterController.enabled = false;
-                transform.position = other.GetComponent<Teleport>().targetDestination.position;
-                characterController.enabled = true;
+                TeleportBody(other.GetComponent<Portal.Teleport>().targetDestination);
                 Destroy(other.gameObject);
             }
         }
 
-        private void OnTriggerExit(Collider other)
+        
+        private void TeleportBody(Transform pos)
         {
-            if (other.gameObject.CompareTag("Portal"))
-            {
-                canTeleport = true;
-            }
-            
-            if (other.gameObject.CompareTag("Lever"))
-            {
-                canTeleport = true;
-            }
+            characterController.enabled = false; //Tohle se musí vypnout nebo se hráč neteleportuje, trust me, im an engineer
+            transform.position = pos.position;
+            characterController.enabled = true;
         }
     }
 }

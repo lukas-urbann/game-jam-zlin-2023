@@ -1,17 +1,21 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace UI
 {
+    /// <summary>
+    /// Hlavní třída čudlíku. Slouží jako základ pro všechna tlačítka na scénách.
+    /// </summary>
     public abstract class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
+        //Nastavení barev
         [Header("- Button Color -")] private Color normal, hover, pressed;
-        public TMP_Text _text;
+        public TMP_Text _text; //Textový objekt
 
         private void Start()
         {
+            //Kontrola, aby nenastala chyba, kdyžtak vyhodíme vlastní
             if (_text == null)
             {
                 ErrorReporter.ReportError(gameObject, "Nedosazený text", this, "Nebyl dosazen TMP_Text komponent");
@@ -22,6 +26,7 @@ namespace UI
             hover = new Color(1,0,1,1);
             pressed = new Color(1,0,0,1);
             
+            //Nastaví defaultní barvu
             SetButtonTextColor();
         }
 
