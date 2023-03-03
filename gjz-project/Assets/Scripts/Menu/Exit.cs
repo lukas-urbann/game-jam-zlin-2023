@@ -1,4 +1,7 @@
 using UI;
+using System;
+using UnityEngine;
+using System.Collections;
 
 public class Exit : Button
 {
