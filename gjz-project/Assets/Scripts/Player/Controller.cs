@@ -2,26 +2,47 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vector3 = System.Numerics.Vector3;
 
 namespace Player
 {
     public class Controller : MonoBehaviour
     {
+        public static Controller Instance;
+        
         [Header("PlayerPrefabs")]
         [SerializeField] private Body selectedPlayer;
-        [SerializeField] private Player.Body player1, player2;
+        [SerializeField] private Body player1, player2;
+        [SerializeField] private GameObject cameraLookPoint;
 
-        private void AssignObjects()
+        public UnityEngine.Camera cam;
+
+        private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
-        
-        void Start()
+
+        public Body GetSelectedPlayer()
         {
-            AssignObjects();
+            return selectedPlayer;
+        }
+
+        private void CalculateInterpolatedLocation()
+        {
+            cam.transform.LookAt(cameraLookPoint.transform);
         }
 
         private void Update()
         {
+            CalculateInterpolatedLocation();
+            
             if (Input.GetKeyDown(KeyCode.O))
             {
                 SwitchBodies();
@@ -38,11 +59,6 @@ namespace Player
                 selectedPlayer = player1;
 
             selectedPlayer.canMove = true;
-        }
-
-        // Update is called once per frame
-        private void FixedUpdate()
-        {
         }
     }
 }
