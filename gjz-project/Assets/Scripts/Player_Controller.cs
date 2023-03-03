@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    GameObject player;
+    public GameObject player;
+    bool playerMovement = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,10 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        while(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            playerMovement = true;
+        }
         if(Input.GetKey(KeyCode.W))
         {
             player.transform.position += new Vector3(0, 0, 1);
