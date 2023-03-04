@@ -100,8 +100,9 @@ namespace Player
         {
             if (other.gameObject.CompareTag("Portal"))
             {
-                TeleportBody(other.GetComponent<Portal.Teleport>().targetDestination);
-                Destroy(other.gameObject);
+                Portal.Teleport portal = other.GetComponent<Portal.Teleport>();
+                TeleportBody(portal.targetPortal.transform);
+                portal.ActivatePortal();
             }
         }
 

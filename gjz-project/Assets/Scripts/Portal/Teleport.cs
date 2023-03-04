@@ -7,6 +7,12 @@ namespace Portal
     /// </summary>
     public class Teleport : MonoBehaviour
     {
-        public Transform targetDestination;
+        public GameObject targetPortal;
+
+        public void ActivatePortal()
+        {
+            Destroy(targetPortal);
+            Destroy(gameObject);
+        }
     }
 }
