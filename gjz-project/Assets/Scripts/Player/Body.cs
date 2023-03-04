@@ -64,10 +64,10 @@ namespace Player
 
             moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
             
-            //TODO: Gravitace i když cant move
-
+            /*
             if (!characterController.isGrounded)
                 moveDirection.y -= gravity * Time.deltaTime;
+                */
 
             characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
         }
