@@ -6,7 +6,6 @@ namespace Enemy
 {
     public class Witch : MonoBehaviour
     {
-        public Rigidbody rb;
         
         void FixedUpdate()
         {
