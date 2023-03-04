@@ -1,3 +1,4 @@
+using Camera;
 using UnityEngine;
 
 namespace Player
@@ -63,7 +64,11 @@ namespace Player
             player1.SetCanMove(!player1.GetCanMove());
             player2.SetCanMove(!player2.GetCanMove());
 
+            POVChanger.Instance.camera1.enabled = player1.GetCanMove();
+            POVChanger.Instance.camera2.enabled = player2.GetCanMove();
+
             selectedPlayer = selectedPlayer == player1 ? player2 : player1; //Muj mozek objevil nove univerzum
+            
         }
     }
 }

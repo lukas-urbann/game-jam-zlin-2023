@@ -36,32 +36,7 @@ namespace Player
 
         private void Update()
         {
-            //Checkuje pohyb
-            if (!canMove)
-                return;
-            
-            Vector3 playerForward = transform.TransformDirection(Vector3.forward);
-            Vector3 playerRight = transform.TransformDirection(Vector3.right);
-            
-            float bodySpeedX = speed * Input.GetAxis("Vertical");
-            float bodySpeedY = speed * Input.GetAxis("Horizontal");
-            
-            
-            float moveDirectionYTemp = moveDirection.y;
-            moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
-            
-            //---------------
-            if (Input.GetButton("Jump") && characterController.isGrounded)
-                moveDirection.y = jumpSpeed;
-            else
-                moveDirection.y = moveDirectionYTemp;
-            //-----------
-            if (!characterController.isGrounded)
-            {
-                moveDirection.y -= gravity * Time.deltaTime;
-            }
-            //-----------
-            characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
+            BodyMovement();    
         }
 
         public void SetCanMove(bool val)
@@ -77,25 +52,31 @@ namespace Player
         /// <summary>
         /// Dovoluje se hráči hýbat.
         /// </summary>
-        private void MoveInput()
+        private void BodyMovement()
         {
-            
-        }
+            float moveDirectionYTemp = moveDirection.y;
 
-        /// <summary>
-        /// Dovoluje hráči skákat.
-        /// </summary>
-        private void JumpInput()
-        {
+            //Checkuje pohyb
+            if (!canMove)
+                return;
             
-        }
+            Vector3 playerForward = transform.TransformDirection(Vector3.forward);
+            Vector3 playerRight = transform.TransformDirection(Vector3.right);
+            
+            float bodySpeedX = speed * Input.GetAxis("Vertical");
+            float bodySpeedY = speed * Input.GetAxis("Horizontal");
+            
+            moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
+            
+            if (Input.GetButton("Jump") && characterController.isGrounded)
+                moveDirection.y = jumpSpeed;
+            else
+                moveDirection.y = moveDirectionYTemp;
+            
+            if (!characterController.isGrounded)
+                moveDirection.y -= gravity * Time.deltaTime;
 
-        /// <summary>
-        /// Působení gravitace.
-        /// </summary>
-        private void Gravity()
-        {
-            
+            characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
         }
 
         private void OnTriggerEnter(Collider other)
