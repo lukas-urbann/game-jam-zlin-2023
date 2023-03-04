@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Camera
 {
+    /// <summary>
+    /// Přiraďuje kamery do skriptu a umožňuje přepínat mezi nimi.
+    /// </summary>
     public class POVChanger : MonoBehaviour
     {
         public static POVChanger Instance;

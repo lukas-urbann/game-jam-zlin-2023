@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Menu
 {
+    /// <summary>
+    /// Tlačítko zastaví hru.
+    /// </summary>
     public class Pause : MonoBehaviour
     {
         public static Pause Instance;
