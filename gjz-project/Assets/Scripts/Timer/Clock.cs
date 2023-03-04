@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,14 +8,14 @@ namespace Timer
     /// </summary>
     public class Clock : MonoBehaviour
     {
-        private float time = 0;
+        private float _time;
         public TMP_Text timeText;
 
         private void Update()
         {
-            time += Time.deltaTime;
-            int minutes = Mathf.FloorToInt(time / 60f);
-            int seconds = Mathf.FloorToInt(time % 60f);
+            _time += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(_time / 60f);
+            int seconds = Mathf.FloorToInt(_time % 60f);
             timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
         }
     }

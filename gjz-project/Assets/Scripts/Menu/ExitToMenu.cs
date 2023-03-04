@@ -1,7 +1,5 @@
 using Manager;
 using UI;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Menu
 {
