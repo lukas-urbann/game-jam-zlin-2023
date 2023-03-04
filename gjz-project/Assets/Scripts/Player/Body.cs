@@ -68,11 +68,14 @@ namespace Player
             
             moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
             
+            //TODO: Gravitace i když cant move
+            /*
             if (Input.GetButton("Jump") && characterController.isGrounded)
                 moveDirection.y = jumpSpeed;
             else
                 moveDirection.y = moveDirectionYTemp;
-            
+            */    
+        
             if (!characterController.isGrounded)
                 moveDirection.y -= gravity * Time.deltaTime;
 
