@@ -17,14 +17,12 @@ namespace Player
         
         //Booly
         [SerializeField] private bool canMove = false;
-        [SerializeField] private bool canTeleport = true;
 
         //Proměnné editovatelné
-        [SerializeField] private float speed = 5;
-        [SerializeField] private float jumpSpeed = 6;
+        [SerializeField] private float speed = 3;
 
         //Proměnné private
-        private Vector3 moveDirection = Vector3.zero;
+        public Vector3 moveDirection = Vector3.zero;
         private float gravity = 9.87f;
         
         #endregion
@@ -54,8 +52,6 @@ namespace Player
         /// </summary>
         private void BodyMovement()
         {
-            float moveDirectionYTemp = moveDirection.y;
-
             //Checkuje pohyb
             if (!canMove)
                 return;
@@ -65,17 +61,11 @@ namespace Player
             
             float bodySpeedX = speed * Input.GetAxis("Vertical");
             float bodySpeedY = speed * Input.GetAxis("Horizontal");
-            
+
             moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
             
             //TODO: Gravitace i když cant move
-            /*
-            if (Input.GetButton("Jump") && characterController.isGrounded)
-                moveDirection.y = jumpSpeed;
-            else
-                moveDirection.y = moveDirectionYTemp;
-            */    
-        
+
             if (!characterController.isGrounded)
                 moveDirection.y -= gravity * Time.deltaTime;
 

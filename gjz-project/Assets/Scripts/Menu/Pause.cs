@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 namespace Menu
@@ -32,7 +33,7 @@ namespace Menu
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !GameOver.Instance.GetGameOverState())
             {
                 SwitchPauseState();
             }
