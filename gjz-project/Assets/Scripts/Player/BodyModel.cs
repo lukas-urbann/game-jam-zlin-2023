@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Sets look direction of the player.
+    /// </summary>
     public class BodyModel : MonoBehaviour
     {
         public Animator anim;

@@ -9,11 +9,13 @@ namespace Player
     {
         private void Update()
         {
-            transform.position = new Vector3(
-                Mathf.Lerp(transform.position.x, Controller.Instance.GetSelectedPlayer().gameObject.transform.position.x, 2 * Time.deltaTime),
-                Mathf.Lerp(transform.position.y, Controller.Instance.GetSelectedPlayer().gameObject.transform.position.y, 2 * Time.deltaTime),
-                Mathf.Lerp(transform.position.z, Controller.Instance.GetSelectedPlayer().gameObject.transform.position.z, 2 * Time.deltaTime)
+            var position = transform.position;
+            position = new Vector3(
+                Mathf.Lerp(position.x, Controller.Instance.GetSelectedPlayer().gameObject.transform.position.x, 2 * Time.deltaTime),
+                Mathf.Lerp(position.y, Controller.Instance.GetSelectedPlayer().gameObject.transform.position.y, 2 * Time.deltaTime),
+                Mathf.Lerp(position.z, Controller.Instance.GetSelectedPlayer().gameObject.transform.position.z, 2 * Time.deltaTime)
                 );
+            transform.position = position;
         }
     }
 }

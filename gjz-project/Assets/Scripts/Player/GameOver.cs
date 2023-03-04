@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Přepíná na Game Over Screen.
+    /// </summary>
     public class GameOver : MonoBehaviour
     {
         public static GameOver Instance;

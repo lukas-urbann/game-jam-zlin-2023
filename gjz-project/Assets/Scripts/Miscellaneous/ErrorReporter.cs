@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Miscellaneous
 {
+    /// <summary>
+    /// Hlásí chyby.
+    /// </summary>
     public class ErrorReporter : MonoBehaviour
     {
         //Tohle je jen fancy způsob jak si můžeme posílat chyby, nic víc
