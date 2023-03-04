@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Timer
 {
+    /// <summary>
+    /// Časovač, který počítá od začátku hry a zobrazuje čas v textovém poli.
+    /// </summary>
     public class Clock : MonoBehaviour
     {
         private float time = 0;

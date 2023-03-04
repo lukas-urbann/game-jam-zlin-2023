@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 namespace Manager
 {
+    /// <summary>
+    /// Načítá scény s animací.
+    /// </summary>
     public class SceneLoader : MonoBehaviour
     {
         public static SceneLoader Instance;
