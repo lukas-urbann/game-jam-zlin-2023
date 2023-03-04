@@ -9,6 +9,7 @@ namespace Player
     {
         public static GameOver Instance;
         private bool gameOverState = false;
+        public GameObject gameOverScreen;
 
         private void Awake()
         {
@@ -22,9 +23,21 @@ namespace Player
             }
         }
 
+        private void Start()
+        {
+            if(gameOverScreen == null)
+                ErrorReporter.ReportError(gameObject, "Nedosazený objekt", this, "Musí se dosadit Game Over Screen");
+        }
+
         public bool GetGameOverState()
         {
             return gameOverState;
+        }
+
+        public void GameEnd()
+        {
+            gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }

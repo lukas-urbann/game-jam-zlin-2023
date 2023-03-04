@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 namespace Enemy
@@ -16,7 +17,7 @@ namespace Enemy
                 if (hit.collider.CompareTag("Player"))
                 {
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
-                    Debug.Log("gameover");
+                    GameOver.Instance.GameEnd();
                     return;
                 }
                 

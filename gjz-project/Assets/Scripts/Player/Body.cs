@@ -61,13 +61,10 @@ namespace Player
             
             float bodySpeedX = speed * Input.GetAxis("Vertical");
             float bodySpeedY = speed * Input.GetAxis("Horizontal");
+            
+            //Nechame to takhle, může to být "tilované" ale ve finále to působí hůř
 
             moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
-            
-            /*
-            if (!characterController.isGrounded)
-                moveDirection.y -= gravity * Time.deltaTime;
-                */
 
             characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
         }
