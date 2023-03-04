@@ -13,9 +13,10 @@ namespace Timer
 
         private void Update()
         {
-            time += 1 * Time.deltaTime;
-
-            timeText.text = (Math.Floor(time / 60)).ToString("F0") + ":" + (time % 60).ToString("F0");
+            time += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(time / 60f);
+            int seconds = Mathf.FloorToInt(time % 60f);
+            timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
         }
     }
 }
