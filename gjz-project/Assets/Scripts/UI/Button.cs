@@ -50,6 +50,7 @@ namespace UI
         {
             _text.color = pressed;
             Manager.Audio.Instance.PlayButtonClick();
+            _text.color = normal;
         }
 
         //Tu se narve funkce v každých jednotlivých buttonech, ať nemusíme tvořit milion skriptů.

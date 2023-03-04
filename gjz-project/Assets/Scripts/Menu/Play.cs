@@ -1,3 +1,4 @@
+using Manager;
 using UI;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ namespace Menu
     {
         public override void ButtonAction()
         {
-            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            SceneLoader.Instance.LoadSceneWithAnimation("Game");
         }
     }
 }

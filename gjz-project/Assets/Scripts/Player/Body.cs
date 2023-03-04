@@ -40,10 +40,27 @@ namespace Player
             if (!canMove)
                 return;
             
-            MoveInput();
-            JumpInput();
-            Gravity();
+            Vector3 playerForward = transform.TransformDirection(Vector3.forward);
+            Vector3 playerRight = transform.TransformDirection(Vector3.right);
             
+            float bodySpeedX = speed * Input.GetAxis("Vertical");
+            float bodySpeedY = speed * Input.GetAxis("Horizontal");
+            
+            
+            float moveDirectionYTemp = moveDirection.y;
+            moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
+            
+            //---------------
+            if (Input.GetButton("Jump") && characterController.isGrounded)
+                moveDirection.y = jumpSpeed;
+            else
+                moveDirection.y = moveDirectionYTemp;
+            //-----------
+            if (!characterController.isGrounded)
+            {
+                moveDirection.y -= gravity * Time.deltaTime;
+            }
+            //-----------
             characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
         }
 
@@ -62,13 +79,7 @@ namespace Player
         /// </summary>
         private void MoveInput()
         {
-            Vector3 playerForward = transform.TransformDirection(Vector3.forward);
-            Vector3 playerRight = transform.TransformDirection(Vector3.right);
             
-            float bodySpeedX = speed * Input.GetAxis("Vertical");
-            float bodySpeedY = speed * Input.GetAxis("Horizontal");
-            
-            moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
         }
 
         /// <summary>
@@ -76,13 +87,7 @@ namespace Player
         /// </summary>
         private void JumpInput()
         {
-            //TODO: NĚkde tu je rozbity skok a gravitace
-            float moveDirectionYTemp = moveDirection.y;
             
-            if (Input.GetButton("Jump") && characterController.isGrounded)
-                moveDirection.y = jumpSpeed;
-            else
-                moveDirection.y = moveDirectionYTemp;
         }
 
         /// <summary>
@@ -90,10 +95,7 @@ namespace Player
         /// </summary>
         private void Gravity()
         {
-            if (!characterController.isGrounded)
-            {
-                moveDirection.y -= gravity * Time.deltaTime;
-            }
+            
         }
 
         private void OnTriggerEnter(Collider other)
