@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 399760f745173454e81bc8e69d97deb7
+guid: 8592c06c99cc5184c928d2a07df99e42
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,78 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BROWN
-    second: {fileID: 2100000, guid: 39b79a32117d15d438c9148f3f0ecd01, type: 2}
+      name: light
+    second: {fileID: 2100000, guid: 40b7ca93e3fca834499c8a224704a9f0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: GROUND_LES
-    second: {fileID: 2100000, guid: 9099d71b45ee7a24183789284fb25014, type: 2}
+      name: lucernakov
+    second: {fileID: 2100000, guid: cadf413c35c34bf4eb6e4fd408703798, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: HOUBY 6
-    second: {fileID: 2100000, guid: aa27d1945547db447807fc47e30df231, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: INSIDE_BROWN
-    second: {fileID: 2100000, guid: d3d85c626d309d5488fb63fafd66e103, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: KAMEN1
-    second: {fileID: 2100000, guid: 4e699982551974848937d995f198a8c8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: KAMEN2
-    second: {fileID: 2100000, guid: 23fb34bd3d62f4845a13b89b1f75963a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: KAMEN3
-    second: {fileID: 2100000, guid: 7926332932719094f9b4e88bdeb647e2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: green1
-    second: {fileID: 2100000, guid: 11287e3a653f2a44c9e5b9eef52cf80e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: green2
-    second: {fileID: 2100000, guid: 7b291a4804bdfe54db1e8c6b0786e1ab, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: green3
-    second: {fileID: 2100000, guid: f94fc7cca1bb6dc499f32c1549f01877, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: houba 1
-    second: {fileID: 2100000, guid: 13239b8a0f471834eb4da4e148eb3003, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: houba 2
-    second: {fileID: 2100000, guid: 6ddfadcff23acfb4abe122dfbd8a7ea5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: houba 3
-    second: {fileID: 2100000, guid: 8855699a7d63547459d30a3ff770d052, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: houba 5
-    second: {fileID: 2100000, guid: 47b72890178b62844bd348147e438508, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: houba4
-    second: {fileID: 2100000, guid: c7403f120a0b7614099b8319b73796cf, type: 2}
+      name: lucernastriska
+    second: {fileID: 2100000, guid: 103b1ab15c2dbad45a5cce432947e559, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
