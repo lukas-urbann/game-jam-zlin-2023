@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class VictoryController : MonoBehaviour
+    public class VictoryScreen : MonoBehaviour
     {
         public Transform player1;
         public Transform player2;
