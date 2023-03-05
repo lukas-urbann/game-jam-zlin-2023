@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Player
 {
@@ -11,6 +12,8 @@ namespace Player
         public GameObject gameOverScreen;
         
         private bool gameOverState = false;
+
+        public Sprite player1Lose, player2Lose;
 
         //Singleton
         private void Awake()
@@ -37,10 +40,12 @@ namespace Player
         /// </summary>
         public void GameEnd(bool player1)
         {
+            Image img = gameOverScreen.GetComponent<Image>();
+
             if (player1)
-                Debug.Log("Game Over - Player 1");
+                img.sprite = player1Lose;
             else
-                Debug.Log("Game Over - Player 2");
+                img.sprite = player2Lose;
             //Player one je startovací charakter
             //gameOverScreen.SetActive(true);
             //Time.timeScale = 0;
