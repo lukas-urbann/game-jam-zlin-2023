@@ -7,7 +7,7 @@ namespace Player
     /// </summary>
     public class Interpolator : MonoBehaviour
     {
-        //Zjednodušení dlouhých  
+        //Zjednodušení dlouhých názvů
         private Vector3 Player1Position;
         private Vector3 Player2Position;
 

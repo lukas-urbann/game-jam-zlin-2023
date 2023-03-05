@@ -1,7 +1,4 @@
 using UI;
-using System;
-using UnityEngine;
-using System.Collections;
 
 namespace Menu
 {
@@ -13,6 +10,8 @@ namespace Menu
         //Vypne hru, nebo vypne play mode. Zděděno z Button classy.
         public override void ButtonAction()
         {
+            //Specialni kouzelny trik pro specialni deti
+            //Vypne hru nebo play mode pokud je hra spuštněna v unity editoru
             #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
             #else

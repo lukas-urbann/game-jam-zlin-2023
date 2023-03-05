@@ -22,6 +22,7 @@ namespace UI
                 return;
             }
             
+            //Hardcodnuté barvy
             normal = new Color(1,1,1,1);
             hover = new Color(1,0,1,1);
             pressed = new Color(1,0,0,1);
@@ -48,9 +49,10 @@ namespace UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            //Efekt pro čudlík
             _text.color = pressed;
             Manager.Audio.Instance.PlayButtonClick();
-            _text.color = normal;
+            _text.color = normal; //Musí se vyresetovat barva
         }
 
         //Tu se narve funkce v každých jednotlivých buttonech, ať nemusíme tvořit milion skriptů.

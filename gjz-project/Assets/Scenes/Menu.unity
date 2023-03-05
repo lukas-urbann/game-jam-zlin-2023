@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000026703, y: 195}
+  m_AnchoredPosition: {x: -804.6, y: 201.79999}
   m_SizeDelta: {x: 61.9788, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608092199
@@ -344,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -171}
-  m_SizeDelta: {x: 451.8856, y: 105.67029}
+  m_AnchoredPosition: {x: -487, y: -746}
+  m_SizeDelta: {x: 391.66, y: 56.0555}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618740665
 MonoBehaviour:
@@ -369,8 +369,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ja\u0159enka a Men\xED\u010Dek"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
-  m_sharedMaterial: {fileID: 6732873394539309597, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
+  m_sharedMaterial: {fileID: -188427503076473069, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -452,7 +452,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618740663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: fbde876c254293440ac897d2e42c6264, type: 2}
   m_CullingMode: 0
@@ -684,8 +684,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Hr\xE1t"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
-  m_sharedMaterial: {fileID: 6732873394539309597, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
+  m_sharedMaterial: {fileID: -188427503076473069, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1086,15 +1086,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25383312, g: 0.3584906, b: 0.251958, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7bf1e1cf764f6b645978f516a84dcd17, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1431,7 +1431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 82.1001, y: 73.80005}
+  m_AnchoredPosition: {x: 1794.9, y: 273}
   m_SizeDelta: {x: 108.21533, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1353166130
@@ -1532,8 +1532,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ukon\u010Dit"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
-  m_sharedMaterial: {fileID: 6732873394539309597, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
+  m_sharedMaterial: {fileID: -188427503076473069, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1743,7 +1743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -121.8999, y: 90.80005}
+  m_AnchoredPosition: {x: -171, y: 122.00006}
   m_SizeDelta: {x: 200, y: 158.05481}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862073439
@@ -1769,8 +1769,8 @@ MonoBehaviour:
   m_text: "Jakub Kramn\xFD\nLuk\xE1\u0161 Urban\nVojta \u0160tajer\nTade\xE1\u0161
     K\u0159\xEDbek\n\u0160t\u011Bp\xE1n Dlabaja"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
-  m_sharedMaterial: {fileID: 6732873394539309597, guid: 6e20a9bf850076943aa87516ed4c0ed0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
+  m_sharedMaterial: {fileID: -188427503076473069, guid: d3cb2dff33d0930448a524ed5c4cda26, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1881,7 +1881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000047684, y: 97}
+  m_AnchoredPosition: {x: -766, y: 116}
   m_SizeDelta: {x: 87.9878, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874877423

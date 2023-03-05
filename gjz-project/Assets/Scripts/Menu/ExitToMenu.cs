@@ -1,7 +1,5 @@
 using Manager;
 using UI;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -12,6 +10,7 @@ namespace Menu
     {
         public override void ButtonAction()
         {
+            //Načte menu
             SceneLoader.Instance.LoadSceneWithAnimation("Menu");
         }
     }

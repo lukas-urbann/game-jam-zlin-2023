@@ -1,11 +1,10 @@
 using Manager;
 using UI;
-using UnityEngine.SceneManagement;
 
 namespace Menu
 {
     /// <summary>
-    /// Tlačítko pro spuśtění hry
+    /// Tlačítko pro spuštění hry
     /// </summary>
     public class Play : Button
     {

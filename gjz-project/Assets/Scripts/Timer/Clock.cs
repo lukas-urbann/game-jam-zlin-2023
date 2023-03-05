@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +5,7 @@ namespace Timer
 {
     /// <summary>
     /// Časovač, který počítá od začátku hry a zobrazuje čas v textovém poli.
+    /// Je to jen hezký dodatek.
     /// </summary>
     public class Clock : MonoBehaviour
     {

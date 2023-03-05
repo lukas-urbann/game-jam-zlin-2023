@@ -4,6 +4,8 @@ namespace Player
 {
     /// <summary>
     /// Kalkuluje bod na který se kamera díva.
+    /// To je ten objekt co se lepí na hráče. Je to ta kostka ve scéně.
+    /// Je to jen pro to, aby byla kamera plynulá.
     /// </summary>
     public class CameraLookPoint : MonoBehaviour
     {

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
@@ -8,19 +5,19 @@ namespace Player
     public class GameOver : MonoBehaviour
     {
         public static GameOver Instance;
-        private bool gameOverState = false;
+        
+        //Potřeba dosadit gameover screen, aby se mělo co přehrát
         public GameObject gameOverScreen;
+        
+        private bool gameOverState = false;
 
+        //Singleton
         private void Awake()
         {
             if (Instance != null && Instance != this)
-            {
                 Destroy(gameObject);
-            }
             else
-            {
                 Instance = this;
-            }
         }
 
         private void Start()
@@ -34,6 +31,9 @@ namespace Player
             return gameOverState;
         }
 
+        /// <summary>
+        /// Ukončí hru, zastaví čas a přehraje animaci.
+        /// </summary>
         public void GameEnd()
         {
             gameOverScreen.SetActive(true);

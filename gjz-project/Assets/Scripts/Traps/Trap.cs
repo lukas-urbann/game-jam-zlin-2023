@@ -1,49 +1,74 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Traps
 {
+    /// <summary>
+    /// Každá past musí mít tento skript.
+    /// Tím myšleno objekt, který funguje jako past, ne její trigger.
+    /// </summary>
     public class Trap : MonoBehaviour
     {
-        public string enablepast, disablepast;
+        [Tooltip("Fyzické názvy animací v animátoru objektu, které se přehrají")]
+        public string enableTrapAnimationName, disableTrapAnimationName;
+        
+        [Tooltip("Typ pasti. Kontroluje které se zapnou nebo vypnou jako další.")]
         public TrapType TrapType;
-        public Animator anim;
+        
+        [Tooltip("Animátor pasti")]
+        private Animator anim;
+        
+        [Tooltip("Čas, který udává jak dlouho po aktivaci pasti je past smrtelná")]
         public float killTime = 1;
-        public bool isEnabled = false;
 
-        public bool canKill = false;
-        public Collider collider;
+        [Tooltip("Ukazuje zda je past zaplá")] public bool isEnabled;
+
+        [Tooltip("Ukazuje zda past může zabít hráče při doteku")] public bool canKill;
+        
+        [Tooltip("Collider, který se přepíná mezi triggerem a normálním.")]
+        private Collider objCollider;
 
         private void Start()
         {
+            //Přidáme void do delegátu
             TrapControl.Instance.trapSwitch += CheckTrapType;
+            
+            //Tohle se dosadí samo z objektu
             anim = GetComponent<Animator>();
-            collider = GetComponent<Collider>();
+            objCollider = GetComponent<Collider>();
         }
 
-        protected void DisableTrap()
+        private void DisableTrap()
         {
             isEnabled = false;
-            anim.Play(disablepast);
+            anim.Play(enableTrapAnimationName);
         }
 
-        protected void EnableTrap()
+        private void EnableTrap()
         {
             isEnabled = true;
-            anim.Play(enablepast);
+            anim.Play(disableTrapAnimationName);
         }
 
+        /// <summary>
+        /// Jednoduchý killswitch
+        /// </summary>
+        /// <returns>Nic</returns>
         private IEnumerator StartKillTime()
         {
             canKill = true;
-            collider.isTrigger = true;
+            objCollider.isTrigger = true;
+            
             yield return new WaitForSeconds(killTime);
+            
             canKill = false;
-            collider.isTrigger = false;
+            objCollider.isTrigger = false;
         }
 
-        protected void CheckTrapType()
+        /// <summary>
+        /// Kontroluje typ pasti a připraví další pasti dle potřeby.
+        /// </summary>
+        private void CheckTrapType()
         {
             if(!isEnabled)
                 StartCoroutine(StartKillTime());

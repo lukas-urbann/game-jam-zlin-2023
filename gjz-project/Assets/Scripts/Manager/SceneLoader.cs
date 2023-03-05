@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Manager
 {
     /// <summary>
-    /// Načítá scény s animací.
+    /// Načítá scény s přechodnou animací.
     /// </summary>
     public class SceneLoader : MonoBehaviour
     {
@@ -17,13 +16,15 @@ namespace Manager
         private void Awake()
         {
             if (Instance != null && Instance != this)
-            {
                 Destroy(this);
-            }
             else
-            {
                 Instance = this;
-            }
+        }
+
+        private void Start()
+        {
+            if(foregroundAnim == null)
+                ErrorReporter.ReportError(gameObject, "Chybí dosazený Animator.", this, "SceneLoader potřebuje dosadit foreground animator.");
         }
 
         public void LoadSceneWithAnimation(string name)
@@ -33,9 +34,11 @@ namespace Manager
         
         private IEnumerator AnimationLoad(string name)
         {
+            //Přehraje animaci
             foregroundAnim.Play("ForegroundMenuLeave");
             yield return new WaitForSecondsRealtime(1f);
-            Time.timeScale = 1;
+            //Načte scénu
+            Time.timeScale = 1; //Tohle je smrtelně důležité
             SceneManager.LoadScene(name, LoadSceneMode.Single);
         }
     }

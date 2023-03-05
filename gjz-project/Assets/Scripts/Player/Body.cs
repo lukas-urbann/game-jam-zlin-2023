@@ -12,9 +12,6 @@ namespace Player
 
         private CharacterController characterController;
         
-        //Označuje hráče
-        public PlayerType PlayerType;
-        
         //Booly
         [SerializeField] private bool canMove = false;
 
@@ -47,7 +44,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Dovoluje se hráči hýbat.
+        /// Dovoluje se hráči hýbat a hlídá input.
         /// </summary>
         private void BodyMovement()
         {
@@ -70,33 +67,9 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            /*
-            if (other.gameObject.CompareTag("Portal"))
-            {
-                Portal.Teleport portal = other.GetComponent<Portal.Teleport>();
-                TeleportBody(portal.targetPortal.transform);
-                portal.ActivatePortal();
-            }
-            */
-
-            if (other.gameObject.CompareTag("Trap"))
-            {
-                /*
-                if (!other.GetComponent<Traps.Trap>().canKill)
-                    return;
-                */
-                    
+            //Střet s pastí = konec hry
+            if (other.gameObject.CompareTag("Trap") && other.GetComponent<Traps.Trap>().canKill)
                 GameOver.Instance.GameEnd();
-                Time.timeScale = 0;
-            }
-        }
-
-        
-        private void TeleportBody(Transform pos)
-        {
-            characterController.enabled = false; //Tohle se musí vypnout nebo se hráč neteleportuje, trust me, im an engineer
-            transform.position = pos.position;
-            characterController.enabled = true;
         }
     }
 }
