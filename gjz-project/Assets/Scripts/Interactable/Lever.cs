@@ -1,5 +1,4 @@
 using UnityEngine;
-///TODO: DĚDIT Z INTERACTABLE
 namespace Interactable
 {
     /// <summary>
@@ -7,6 +6,7 @@ namespace Interactable
     /// </summary>
     public class Lever : MonoBehaviour
     {
+        /*
         //Distance je vzdálenost páčky ke hráči
         [SerializeField] private float distance;
         [SerializeField] private float reachDistance;
@@ -29,5 +29,6 @@ namespace Interactable
             else
                 canInteract = false;
         }
+        */
     }
 }

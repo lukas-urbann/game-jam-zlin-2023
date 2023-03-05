@@ -7,7 +7,6 @@ namespace Enemy
 {
     public class Witch : MonoBehaviour
     {
-        
         void FixedUpdate()
         {
             RaycastHit hit;

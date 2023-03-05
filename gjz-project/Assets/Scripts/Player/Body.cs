@@ -23,7 +23,6 @@ namespace Player
 
         //Proměnné private
         public Vector3 moveDirection = Vector3.zero;
-        private float gravity = 9.87f;
         
         #endregion
         
@@ -71,11 +70,24 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
+            /*
             if (other.gameObject.CompareTag("Portal"))
             {
                 Portal.Teleport portal = other.GetComponent<Portal.Teleport>();
                 TeleportBody(portal.targetPortal.transform);
                 portal.ActivatePortal();
+            }
+            */
+
+            if (other.gameObject.CompareTag("Trap"))
+            {
+                /*
+                if (!other.GetComponent<Traps.Trap>().canKill)
+                    return;
+                */
+                    
+                GameOver.Instance.GameEnd();
+                Time.timeScale = 0;
             }
         }
 
