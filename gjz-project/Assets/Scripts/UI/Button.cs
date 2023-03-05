@@ -1,9 +1,6 @@
-using Manager;
-using Miscellaneous;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -13,21 +10,21 @@ namespace UI
     public abstract class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         //Nastavení barev
-        [Header("- Button Color -")] private Color _normal, _hover, _pressed;
-        [FormerlySerializedAs("_text")] public TMP_Text text; //Textový objekt
+        [Header("- Button Color -")] private Color normal, hover, pressed;
+        public TMP_Text _text; //Textový objekt
 
         private void Start()
         {
             //Kontrola, aby nenastala chyba, kdyžtak vyhodíme vlastní
-            if (text == null)
+            if (_text == null)
             {
                 ErrorReporter.ReportError(gameObject, "Nedosazený text", this, "Nebyl dosazen TMP_Text komponent");
                 return;
             }
             
-            _normal = new Color(1,1,1,1);
-            _hover = new Color(1,0,1,1);
-            _pressed = new Color(1,0,0,1);
+            normal = new Color(1,1,1,1);
+            hover = new Color(1,0,1,1);
+            pressed = new Color(1,0,0,1);
             
             //Nastaví defaultní barvu
             SetButtonTextColor();
@@ -35,25 +32,25 @@ namespace UI
 
         private void SetButtonTextColor()
         {
-            text.color = _normal;
+            _text.color = normal;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            text.color = _hover;
-            Audio.Instance.PlayButtonHover();
+            _text.color = hover;
+            Manager.Audio.Instance.PlayButtonHover();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            text.color = _normal;
+            _text.color = normal;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            text.color = _pressed;
-            Audio.Instance.PlayButtonClick();
-            text.color = _normal;
+            _text.color = pressed;
+            Manager.Audio.Instance.PlayButtonClick();
+            _text.color = normal;
         }
 
         //Tu se narve funkce v každých jednotlivých buttonech, ať nemusíme tvořit milion skriptů.

@@ -1,5 +1,5 @@
-using UI;
 using UnityEngine;
+using UI;
 
 namespace Menu
 {

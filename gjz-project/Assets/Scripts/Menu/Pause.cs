@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
@@ -9,7 +12,7 @@ namespace Menu
     public class Pause : MonoBehaviour
     {
         public static Pause Instance;
-        private bool pause;
+        private bool pause = false;
         public GameObject pauseMenu;
         
         //Singleton

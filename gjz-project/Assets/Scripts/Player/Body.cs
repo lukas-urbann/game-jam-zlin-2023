@@ -1,4 +1,3 @@
-using Portal;
 using UnityEngine;
 
 namespace Player
@@ -17,7 +16,7 @@ namespace Player
         public PlayerType PlayerType;
         
         //Booly
-        [SerializeField] private bool canMove;
+        [SerializeField] private bool canMove = false;
 
         //Proměnné editovatelné
         [SerializeField] private float speed = 3;
@@ -74,7 +73,7 @@ namespace Player
             /*
             if (other.gameObject.CompareTag("Portal"))
             {
-                Teleport portal = other.GetComponent<Teleport>();
+                Portal.Teleport portal = other.GetComponent<Portal.Teleport>();
                 TeleportBody(portal.targetPortal.transform);
                 portal.ActivatePortal();
             }

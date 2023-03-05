@@ -25,8 +25,8 @@ namespace Player
         [Header("PlayerPrefabs")]
         [SerializeField] private Body selectedPlayer;
         public Body player1, player2;
-        private const float SwitchTime = 3f;
-        private bool _canSwitch = true;
+        private float switchTime = 3f;
+        private bool canSwitch = true;
 
         #endregion
         
@@ -55,16 +55,16 @@ namespace Player
         private void Update()
         {
             //Vymění zvolené tělo hráče
-            if (Input.GetAxis("Interaction") > 0 && _canSwitch) //Tohle je dělané přes starý input manager
+            if (Input.GetAxis("Interaction") > 0 && canSwitch) //Tohle je dělané přes starý input manager
                 StartCoroutine(SwitchCooldown());
         }
 
         private IEnumerator SwitchCooldown()
         {
-            _canSwitch = false;
+            canSwitch = false;
             SwitchBodies();
-            yield return new WaitForSeconds(SwitchTime);
-            _canSwitch = true;
+            yield return new WaitForSeconds(switchTime);
+            canSwitch = true;
         }
 
         /// <summary>

@@ -1,5 +1,7 @@
 using UI;
-using UnityEditor;
+using System;
+using UnityEngine;
+using System.Collections;
 
 namespace Menu
 {
@@ -12,7 +14,7 @@ namespace Menu
         public override void ButtonAction()
         {
             #if UNITY_EDITOR
-                EditorApplication.isPlaying = false;
+                UnityEditor.EditorApplication.isPlaying = false;
             #else
                  Application.Quit();
             #endif
