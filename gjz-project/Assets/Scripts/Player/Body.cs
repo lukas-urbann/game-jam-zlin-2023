@@ -69,7 +69,7 @@ namespace Player
         {
             //Střet s pastí = konec hry
             if (other.gameObject.CompareTag("Trap") && other.GetComponent<Traps.Trap>().canKill)
-                GameOver.Instance.GameEnd();
+                GameOver.Instance.GameEnd(gameObject.CompareTag("Player1"));
         }
     }
 }

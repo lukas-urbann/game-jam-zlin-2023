@@ -10,7 +10,7 @@ namespace Traps
         private void OnTriggerEnter(Collider other)
         {
             //Hráč = invert pastí
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player1") || other.CompareTag("Player2"))
             {
                 TrapControl.Instance.lastTrapType = TrapType;
                 TrapControl.Instance.trapSwitch.Invoke();
