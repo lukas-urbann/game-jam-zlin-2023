@@ -24,7 +24,7 @@ namespace UI
             
             //Hardcodnuté barvy
             normal = new Color(1,1,1,1);
-            hover = new Color(1,0,1,1);
+            hover = new Color(1,1,0.6f,1);
             pressed = new Color(1,0,0,1);
             
             //Nastaví defaultní barvu

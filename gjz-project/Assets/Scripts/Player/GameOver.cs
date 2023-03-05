@@ -1,3 +1,4 @@
+using Manager;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ namespace Player
     public class GameOver : MonoBehaviour
     {
         public static GameOver Instance;
+        public AudioClip gameOver;
         
         //Potřeba dosadit gameover screen, aby se mělo co přehrát
         public GameObject gameOverScreen;
@@ -40,6 +42,8 @@ namespace Player
         /// </summary>
         public void GameEnd(bool player1)
         {
+            Audio.Instance.PlaySoundOneShot(gameOver);
+            
             Image img = gameOverScreen.GetComponent<Image>();
 
             if (player1)

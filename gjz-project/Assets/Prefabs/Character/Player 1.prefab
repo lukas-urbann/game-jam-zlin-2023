@@ -112,10 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5471132853542571352}
-  rbMagnitude: 0
   characterController: {fileID: 1658163044128627742}
   playerBody: {fileID: 1658163044128627736}
-  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &1658163044128627813
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8716c6c4d0bdb024d98f91b99ef3679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerType: 0
   canMove: 1
   speed: 3
   moveDirection: {x: 0, y: 0, z: 0}
@@ -295,8 +292,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4535123691626638312, guid: 11e0d229b9f05b548ab0de8b49def443, type: 3}
-  - {fileID: 6168633890440880745, guid: 82b362a58623dc5498e745f1af11a939, type: 3}
+  - {fileID: 2100000, guid: 05f2eb8b171b94340810f4558aac72b3, type: 2}
+  - {fileID: 2100000, guid: cf6c75ede1a95804f8f338109ff6ea5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

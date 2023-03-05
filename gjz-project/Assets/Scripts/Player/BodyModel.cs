@@ -38,7 +38,7 @@ namespace Player
             rbMagnitude = characterController.velocity.magnitude;
             
             //Nastavuje animaci
-            anim.SetFloat("Blend", rbMagnitude/2);
+            anim.SetFloat("Blend", rbMagnitude/1.6f);
 
             //Směr chodu hráče
             direction = new Vector3(playerBody.moveDirection.x, 0, playerBody.moveDirection.z);

@@ -14,6 +14,7 @@ namespace Traps
             {
                 TrapControl.Instance.lastTrapType = TrapType;
                 TrapControl.Instance.trapSwitch.Invoke();
+                gameObject.SetActive(false);
             }
         }
     }

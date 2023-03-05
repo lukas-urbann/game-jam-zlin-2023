@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3611292446628603685}
   m_Layer: 0
   m_Name: Rock Trap
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,4 +169,4 @@ MonoBehaviour:
   killTime: 1
   isEnabled: 0
   canKill: 0
-  objCollider: {fileID: 0}
+  objCollider: {fileID: 3611292447300073750}
