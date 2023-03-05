@@ -1,14 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Miscellaneous;
 using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Přepíná na Game Over Screen.
+    /// </summary>
     public class GameOver : MonoBehaviour
     {
         public static GameOver Instance;
-        private bool gameOverState = false;
+        private const bool GameOverState = false;
         public GameObject gameOverScreen;
 
         private void Awake()
@@ -31,7 +32,7 @@ namespace Player
 
         public bool GetGameOverState()
         {
-            return gameOverState;
+            return GameOverState;
         }
 
         public void GameEnd()

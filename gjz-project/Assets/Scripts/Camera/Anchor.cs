@@ -13,11 +13,13 @@ namespace Camera
         
         private void Update()
         {
-            transform.position = new Vector3(
-                Mathf.Lerp(transform.position.x, target.transform.position.x, speed * Time.deltaTime),
-                Mathf.Lerp(transform.position.y, target.transform.position.y, speed * Time.deltaTime),
-                Mathf.Lerp(transform.position.z, target.transform.position.z, speed * Time.deltaTime)
+            var position = transform.position;
+            position = new Vector3(
+                Mathf.Lerp(position.x, target.transform.position.x, speed * Time.deltaTime),
+                Mathf.Lerp(position.y, target.transform.position.y, speed * Time.deltaTime),
+                Mathf.Lerp(position.z, target.transform.position.z, speed * Time.deltaTime)
                 );
+            transform.position = position;
         }
     }
 }
