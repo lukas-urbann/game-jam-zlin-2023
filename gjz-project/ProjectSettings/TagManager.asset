@@ -7,6 +7,9 @@ TagManager:
   - Portal
   - Lever
   - Pressure Plate
+  - Trap
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - Player1POV
   - Player2POV
-  - 
-  - 
+  - Player1
+  - Player2
   - 
   - 
   - 
