@@ -26,7 +26,7 @@ namespace Traps
         [Tooltip("Ukazuje zda past může zabít hráče při doteku")] public bool canKill;
         
         [Tooltip("Collider, který se přepíná mezi triggerem a normálním.")]
-        private Collider objCollider;
+        public Collider objCollider;
 
         private void Start()
         {
@@ -35,19 +35,23 @@ namespace Traps
             
             //Tohle se dosadí samo z objektu
             anim = GetComponent<Animator>();
-            objCollider = GetComponent<Collider>();
+            
+            if(objCollider == null)
+                objCollider = GetComponent<Collider>();
         }
 
         private void DisableTrap()
         {
             isEnabled = false;
             anim.Play(enableTrapAnimationName);
+            objCollider.enabled = false;
         }
 
         private void EnableTrap()
         {
             isEnabled = true;
             anim.Play(disableTrapAnimationName);
+            objCollider.enabled = true;
         }
 
         /// <summary>
