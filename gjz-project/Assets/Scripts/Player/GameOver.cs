@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player
@@ -34,10 +35,16 @@ namespace Player
         /// <summary>
         /// Ukončí hru, zastaví čas a přehraje animaci.
         /// </summary>
-        public void GameEnd()
+        public void GameEnd(bool player1)
         {
+            if (player1)
+                Debug.Log("Game Over - Player 1");
+            else
+                Debug.Log("Game Over - Player 2");
+            //Player one je startovací charakter
+            //gameOverScreen.SetActive(true);
+            //Time.timeScale = 0;
             gameOverScreen.SetActive(true);
-            Time.timeScale = 0;
         }
     }
 }

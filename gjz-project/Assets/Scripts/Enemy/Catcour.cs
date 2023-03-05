@@ -9,8 +9,8 @@ namespace Enemy
     {
         private void OnTriggerEnter(Collider collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
-                Player.GameOver.Instance.GameEnd();
+            if (collision.gameObject.CompareTag("Player1")||collision.gameObject.CompareTag("Player2"))
+                Player.GameOver.Instance.GameEnd(collision.gameObject.CompareTag("Player1"));
         }
     }
 }
