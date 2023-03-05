@@ -83,6 +83,8 @@ namespace Player
 
             POVChanger.Instance.camera1.enabled = player1.GetCanMove();
             POVChanger.Instance.camera2.enabled = player2.GetCanMove();
+            
+            
 
             selectedPlayer = selectedPlayer == player1 ? player2 : player1; //Tento if se mi moc líbí
         }
