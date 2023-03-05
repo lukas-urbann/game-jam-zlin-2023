@@ -434,7 +434,7 @@ MonoBehaviour:
   killTime: 1
   isEnabled: 0
   canKill: 0
-  objCollider: {fileID: 0}
+  objCollider: {fileID: 8068656832567555015}
 --- !u!65 &8068656832567555015
 BoxCollider:
   m_ObjectHideFlags: 0

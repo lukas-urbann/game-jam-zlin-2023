@@ -169,4 +169,4 @@ MonoBehaviour:
   killTime: 1
   isEnabled: 0
   canKill: 0
-  objCollider: {fileID: 0}
+  objCollider: {fileID: 3611292447300073750}

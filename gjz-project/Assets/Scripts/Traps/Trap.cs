@@ -44,14 +44,14 @@ namespace Traps
         {
             isEnabled = false;
             anim.Play(enableTrapAnimationName);
-            objCollider.enabled = false;
+            objCollider.enabled = true;
         }
 
         private void EnableTrap()
         {
             isEnabled = true;
             anim.Play(disableTrapAnimationName);
-            objCollider.enabled = true;
+            objCollider.enabled = false;
         }
 
         /// <summary>
