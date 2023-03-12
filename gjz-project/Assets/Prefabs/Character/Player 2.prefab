@@ -773,10 +773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 7892014575196812163}
-  rbMagnitude: 0
   characterController: {fileID: 4799439432705847701}
   playerBody: {fileID: 4799439432705847700}
-  direction: {x: 0, y: 0, z: 0}
 --- !u!1 &4799439432705847690
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,9 +788,10 @@ GameObject:
   - component: {fileID: 4799439432705847700}
   - component: {fileID: 4799439432705847701}
   - component: {fileID: 4799439432705847696}
+  - component: {fileID: 747743508827637385}
   m_Layer: 9
   m_Name: Player 2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,9 +832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8716c6c4d0bdb024d98f91b99ef3679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerType: 1
   canMove: 0
-  speed: 3
+  speed: 1
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!143 &4799439432705847701
 CharacterController:
@@ -869,8 +867,16 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!81 &747743508827637385
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799439432705847690}
+  m_Enabled: 0
 --- !u!1 &5087684349009519888
 GameObject:
   m_ObjectHideFlags: 0

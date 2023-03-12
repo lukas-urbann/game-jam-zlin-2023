@@ -20,12 +20,18 @@ namespace Player
 
         //Proměnné private
         public Vector3 moveDirection = Vector3.zero;
+        private Vector2 inputSpeeds;
         
         #endregion
         
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
+        }
+
+        public Vector2 GetInputSpeeds()
+        {
+            return inputSpeeds;
         }
 
         private void Update()
@@ -43,6 +49,11 @@ namespace Player
             return canMove;
         }
 
+        public float GetSpeed()
+        {
+            return speed;
+        }
+
         /// <summary>
         /// Dovoluje se hráči hýbat a hlídá input.
         /// </summary>
@@ -54,15 +65,16 @@ namespace Player
             
             Vector3 playerForward = transform.TransformDirection(Vector3.forward);
             Vector3 playerRight = transform.TransformDirection(Vector3.right);
-            
-            float bodySpeedX = speed * Input.GetAxis("Vertical");
-            float bodySpeedY = speed * Input.GetAxis("Horizontal");
+
+            float bodySpeedX = Input.GetAxis("Vertical");
+            float bodySpeedY = Input.GetAxis("Horizontal");
             
             //Nechame to takhle, může to být "tilované" ale ve finále to působí hůř
-
-            moveDirection = (playerForward * bodySpeedX) + (playerRight * bodySpeedY);
-
-            characterController.Move(moveDirection * Time.deltaTime); //Hýbe s hráčem
+            
+            moveDirection = (playerForward * (bodySpeedX * speed)) + (playerRight * (bodySpeedY * speed));
+            
+            characterController.Move(moveDirection.normalized * Time.deltaTime); //Hýbe s hráčem
+            //TO NORMALIZED TAM MUSÍ BÝT, MŮJ MOZEK SE ABSOLUTNĚ ZVĚTŠIL O 2,86%
         }
 
         private void OnTriggerEnter(Collider other)

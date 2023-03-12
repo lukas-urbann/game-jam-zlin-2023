@@ -127,9 +127,11 @@ GameObject:
   - component: {fileID: 1658163044128627736}
   - component: {fileID: 1658163044128627742}
   - component: {fileID: 3345632527833101219}
+  - component: {fileID: 1352657158}
+  - component: {fileID: 4869520235133173033}
   m_Layer: 8
   m_Name: Player 1
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  speed: 3
+  speed: 1
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!143 &1658163044128627742
 CharacterController:
@@ -205,8 +207,32 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &1352657158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658163044128627813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46975cb4693c9245a5cb57c11925054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  win: {fileID: 8300000, guid: 2b8d8dd146433214b837574a708f0a80, type: 3}
+  player1: {fileID: 1658163044128627812}
+  player2: {fileID: 0}
+  victoryScreen: {fileID: 0}
+--- !u!81 &4869520235133173033
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658163044128627813}
+  m_Enabled: 1
 --- !u!1 &2217909118694436114
 GameObject:
   m_ObjectHideFlags: 0

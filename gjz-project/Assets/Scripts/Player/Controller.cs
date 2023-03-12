@@ -12,17 +12,20 @@ namespace Player
         #region Attributy
 
         public static Controller Instance;
-        
-        [Header("PlayerPrefabs")]
-        [SerializeField] private Body selectedPlayer;
-        [Tooltip("Dosazení těl obou hráčů.")]
-        public Body player1, player2;
-        
+
+        [Header("PlayerPrefabs")] [SerializeField]
+        private Body selectedPlayer;
+
+        [Tooltip("Dosazení těl obou hráčů.")] public Body player1, player2;
+
         private float switchTime = 1.5f;
         private bool canSwitch = true;
 
+        [SerializeField] private float switchTimer, switchTimerActual;
+        public UnityEngine.UI.Slider switchTimerSlider;
+
         #endregion
-        
+
         //Singleton
         private void Awake()
         {
@@ -40,6 +43,10 @@ namespace Player
                 selectedPlayer = player1;
                 selectedPlayer.SetCanMove(true);
             }
+
+            Cursor.visible = false;
+
+            switchTimerSlider.maxValue = switchTimer;
         }
 
         /// <summary>
@@ -58,6 +65,36 @@ namespace Player
                 StartCoroutine(SwitchCooldown());
         }
 
+        private void LateUpdate()
+        {
+            TimerCheck();
+        }
+
+        /// <summary>
+        /// Tady to bude hlídat přecvakávání hráčů. I mean, mohlo by to být v korutině, ale tam si nejsem jistej
+        /// ohledně toho jak by se to dalo flexibilně ovládat, radši to nechám takhle.
+        /// </summary>
+        private void TimerCheck()
+        {
+            switchTimerActual -= 1 * Time.deltaTime;
+
+            switchTimerSlider.value = switchTimerActual;
+
+            if (switchTimerActual <= 0)
+            {
+                SwitchBodies();
+                switchTimerActual = switchTimer;
+            }
+        }
+
+        /// <summary>
+        /// Reset timeru na body switch
+        /// </summary>
+        private void ResetTimer()
+        {
+            switchTimerActual = switchTimer;
+        }
+
         /// <summary>
         /// Pouze cooldown aby hráč nemohl spamovat změnu těl a odhalit si zbytek mapy.
         /// </summary>
@@ -66,7 +103,7 @@ namespace Player
         {
             canSwitch = false;
             SwitchBodies();
-            
+            ResetTimer();
             yield return new WaitForSeconds(switchTime);
             canSwitch = true;
         }
@@ -84,7 +121,8 @@ namespace Player
             POVChanger.Instance.camera1.enabled = player1.GetCanMove();
             POVChanger.Instance.camera2.enabled = player2.GetCanMove();
             
-            
+            player1.GetComponent<AudioListener>().enabled = player1.GetCanMove();
+            player2.GetComponent<AudioListener>().enabled = player2.GetCanMove();
 
             selectedPlayer = selectedPlayer == player1 ? player2 : player1; //Tento if se mi moc líbí
         }

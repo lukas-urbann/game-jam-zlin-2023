@@ -19,18 +19,24 @@ namespace Player
         
         [Tooltip("Dosazení hráčova těla. Na scéné jsou jen dva, to zvládneš.")]
         public Body playerBody;
-        
+
         //Směr
         private Vector3 direction;
-        private float rbMagnitude;
-        
-        private void LateUpdate()
+        public float rbMagnitude;
+        private float animatorBlendValue;
+
+        private void Update()
         {
+            if (rbMagnitude > 0)
+                animatorBlendValue = Mathf.Lerp(animatorBlendValue, rbMagnitude, 8 * Time.deltaTime);
+            else
+                animatorBlendValue = Mathf.Lerp(animatorBlendValue, 0, 8 * Time.deltaTime);
+            
             //Hráč se nemůže hýbat = nemůže chodit
             if (!playerBody.GetCanMove())
             {
                 //Vypneme animaci
-                anim.SetFloat("Blend", 0);
+                anim.SetFloat("Blend", animatorBlendValue);
                 return;
             }
             
@@ -38,18 +44,18 @@ namespace Player
             rbMagnitude = characterController.velocity.magnitude;
             
             //Nastavuje animaci
-            anim.SetFloat("Blend", rbMagnitude/1.6f);
+            anim.SetFloat("Blend", animatorBlendValue);
 
             //Směr chodu hráče
             direction = new Vector3(playerBody.moveDirection.x, 0, playerBody.moveDirection.z);
 
             //Pokud se hráč přestane hýbat, tak se rotace kvůli nedostatku magnitudu
             //vyresetuje. Tohle tomu předejde.
-            if (rbMagnitude >= 0.5f)
+
+            if (rbMagnitude >= 0.3f)
             {
-                transform.rotation = Quaternion.LookRotation(
-                    direction,
-                    Vector3.up);
+                Quaternion desiredRotation = Quaternion.LookRotation(direction, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, 10 * Time.deltaTime);
             }
         }
     }

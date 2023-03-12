@@ -42,6 +42,7 @@ namespace Player
         /// </summary>
         public void GameEnd(bool player1)
         {
+            Cursor.visible = true;
             Audio.Instance.PlaySoundOneShot(gameOver);
             
             Image img = gameOverScreen.GetComponent<Image>();

@@ -48,6 +48,7 @@ namespace Menu
             //Přepnutí stavu
             
             pause = !pause;
+            Cursor.visible = pause;
             if (pause) PauseOn(); else PauseOff();
         }
 
